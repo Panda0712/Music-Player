@@ -31,7 +31,7 @@ const app = {
     {
       name: "Promise for the future",
       singer: "Hatanaka Tasuku",
-      path: "assets/music/song1.mp3",
+      path: "./assets/music/song1.mp3",
       image: "./assets/img/song1.jpg",
     },
     {
