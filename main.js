@@ -130,7 +130,13 @@ const app = {
   defineProperties: function () {
     Object.defineProperty(this, "currentSong", {
       get: function () {
-        return this.songs[this.currentIndex];
+        // return this.songs[this.currentIndex];
+        if (this.currentIndex >= 0 && this.currentIndex < this.songs.length) {
+          return this.songs[this.currentIndex];
+        } else {
+          // Return a default song or handle the out of range case
+          return { name: "No song available", singer: "", path: "", image: "" };
+        }
       },
     });
   },
@@ -376,9 +382,8 @@ const app = {
   },
   // Hàm bắt đầu chương trình
   start: function () {
-    this.defineProperties();
     this.loadConfig();
-    //this.defineProperties();
+    this.defineProperties();
     this.loadCurrentSong();
     this.render();
     this.loadConfig();
