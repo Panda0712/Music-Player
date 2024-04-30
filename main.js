@@ -130,13 +130,7 @@ const app = {
   defineProperties: function () {
     Object.defineProperty(this, "currentSong", {
       get: function () {
-        // return this.songs[this.currentIndex];
-        if (this.currentIndex >= 0 && this.currentIndex < this.songs.length) {
-          return this.songs[this.currentIndex];
-        } else {
-          // Return a default song or handle the out of range case
-          return { name: "No song available", singer: "", path: "", image: "" };
-        }
+        return this.songs[this.currentIndex];
       },
     });
   },
@@ -158,6 +152,7 @@ const app = {
   loadCurrentSong: function () {
     const headerH2 = $("header h2");
     const audio = $("#audio");
+    console.log(this.currentSong);
     headerH2.innerText = this.currentSong.name;
     cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
     audio.src = this.currentSong.path;
