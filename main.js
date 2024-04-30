@@ -376,8 +376,9 @@ const app = {
   },
   // Hàm bắt đầu chương trình
   start: function () {
-    this.loadConfig();
     this.defineProperties();
+    this.loadConfig();
+    //this.defineProperties();
     this.loadCurrentSong();
     this.render();
     this.loadConfig();
